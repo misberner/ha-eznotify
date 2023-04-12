@@ -1,0 +1,11 @@
+{
+  "codeowners": ["@misberner"],
+  "config_flow": false,
+  "dependencies": [],
+  "documentation": "https://github.com/misberner/ha-eznotify",
+  "domain": "eznotify",
+  "iot_class": "assumed_state",
+  "name": "Easy Mobile App Notify",
+  "requirements": [],
+  "version": "0.0.1"
+}

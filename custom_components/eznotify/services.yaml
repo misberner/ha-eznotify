@@ -1,0 +1,25 @@
+notify_mobile_app:
+  name: Notify via Mobile App
+  description: |
+    Sends a push notification to all mobile apps corresponding
+    to the given target entities.
+
+  target:
+    entity:
+      domain:
+      - person
+      - device_tracker
+    device:
+      integration:
+      - mobile_app
+  
+  fields:
+    message:
+      name: Message
+      required: true
+    title:
+      name: Title
+    data:
+      name: Data
+      selector:
+        object:
