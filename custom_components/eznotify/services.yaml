@@ -4,9 +4,7 @@ notify_mobile_app:
 
   target:
     entity:
-      domain:
-      - person
-      - device_tracker
+      domain: []
     device:
       integration: mobile_app
   
@@ -14,8 +12,12 @@ notify_mobile_app:
     message:
       name: Message
       required: true
+      selector:
+        text:
     title:
       name: Title
+      selector:
+        text:
     data:
       name: Data
       selector:
