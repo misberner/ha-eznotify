@@ -6,6 +6,8 @@ from homeassistant.components.notify.const import ATTR_MESSAGE, ATTR_TITLE, ATTR
 from homeassistant.components.mobile_app import notify as mobile_app_notify
 from homeassistant.components.mobile_app.const import DATA_NOTIFY as MOBILE_APP_DOMAIN
 
+from homeassistant.helpers import event
+
 from .const import DOMAIN
 from .registry import Registry
 
