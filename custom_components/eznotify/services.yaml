@@ -4,11 +4,40 @@ notify_mobile_app:
 
   target:
     entity:
-      domain: []
+      domain:
+        - person
+        - sensor
+        - binary_sensor
+        - device_tracker
+        - zone
     device:
       integration: mobile_app
-  
+
   fields:
+    message:
+      name: Message
+      required: true
+      selector:
+        text:
+    title:
+      name: Title
+      selector:
+        text:
+    data:
+      name: Data
+      selector:
+        object:
+
+notify_mobile_app_by_user_id:
+  name: Notify via Mobile App by User ID
+  description: Sends a push notification to all mobile apps corresponding to the given user ID.
+
+  fields:
+    user_id:
+      name: User ID
+      require: true
+      selector:
+        text:
     message:
       name: Message
       required: true
