@@ -5,7 +5,7 @@ import logging
 from homeassistant import core
 from homeassistant.components.notify.const import ATTR_DATA, ATTR_MESSAGE, ATTR_TITLE
 from homeassistant.exceptions import ServiceValidationError
-from homeassistant.helpers import service
+from homeassistant.helpers import target as target_helpers
 from homeassistant.util import slugify
 
 from .const import DOMAIN
@@ -30,7 +30,9 @@ def resolve_targets(hass: core.HomeAssistant, call: core.ServiceCall) -> set[str
     registry: Registry = hass.data[DOMAIN]
     targets = set()
 
-    ref = service.async_extract_referenced_entity_ids(hass, call, expand_group=True)
+    ref = target_helpers.async_extract_referenced_entity_ids(
+        hass, target_helpers.TargetSelection(call.data), expand_group=True
+    )
     for entity_id in _expand_zones(hass, ref.referenced):
         if found := registry.targets_for_entity_id(hass, entity_id):
             targets |= found
